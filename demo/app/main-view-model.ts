@@ -1,4 +1,5 @@
 import {Observable} from 'data/observable';
+import {Algolia} from "nativescript-algolia";
 
 export class HelloWorldModel extends Observable {
 
@@ -11,6 +12,9 @@ export class HelloWorldModel extends Observable {
         // Initialize default values.
         this._counter = 42;
         this.updateMessage();
+        let algolia = new Algolia('VG744RBG1B', '5789b99f1c6b86c2656224d477ac186b');
+        console.log(algolia.initIndex('getstarted_actors'));
+        debugger;
     }
 
     get message(): string {

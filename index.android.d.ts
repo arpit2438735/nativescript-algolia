@@ -1,6 +1,3 @@
-//--------------------------
-// algolia typings file.
-//--------------------------
 export declare class Algolia {
     protected algoliaSearchClient: any;
     constructor(appID: string, apiKey: string);
