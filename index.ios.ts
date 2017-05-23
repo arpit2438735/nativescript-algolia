@@ -7,7 +7,8 @@
 'use strict';
 
 /// <reference path="./Client.ios.d.ts" />
-declare var index;
+declare let index;
+
 export class Algolia {
   protected client:any;
 
