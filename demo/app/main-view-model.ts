@@ -13,7 +13,8 @@ export class HelloWorldModel extends Observable {
         this._counter = 42;
         this.updateMessage();
         let algolia = new Algolia('VG744RBG1B', '5789b99f1c6b86c2656224d477ac186b');
-        console.log(algolia.initIndex('getstarted_actors'));
+        let index = algolia.initIndex('getstarted_actors');
+        console.log(index);
         debugger;
     }
 

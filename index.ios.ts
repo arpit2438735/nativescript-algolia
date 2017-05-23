@@ -7,17 +7,22 @@
 'use strict';
 
 /// <reference path="./Client.ios.d.ts" />
-
+declare var index;
 export class Algolia {
-  protected algoliaSearchClient:any;
+  protected client:any;
 
   constructor(appID: string, apiKey: string) {
-    this.algoliaSearchClient = Client.alloc();
-    this.algoliaSearchClient.initWithAppIDApiKey(appID, apiKey);
+    this.client = Client.alloc();
+    this.client.initWithAppIDApiKey(appID, apiKey);
   };
 
   public initIndex(name:string) : void {
-    return this.algoliaSearchClient.indexWithName(name);
+    this.client.indexWithName("").isMemberOfClass(Index);
+    index = this.client.indexWithName(name);
+  }
+
+  public static search(query:string, handler:Promise<any>):void {
+    index.searchCompletionHandler(query, handler);
   }
 }
 
