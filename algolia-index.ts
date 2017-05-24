@@ -25,4 +25,24 @@ export class AlgoliaIndex {
             handler(success);
         });
     }
+
+    public setSettings(settings:Object, handler:Function):void {
+        index.setSettingsCompletionHandler(settings, (success, error) => {
+            if(error) {
+                handler(error);
+            }
+
+            handler(success);
+        });
+    }
+
+    public addObjects(object:Object, handler:Function):void {
+        index.addObjectsCompletionHandler(object, (success, error) => {
+            if(error) {
+                handler(error);
+            }
+
+            handler(success);
+        });
+    }
 }

@@ -3,6 +3,8 @@ declare class Index {
     static searchCompletionHandler(query:string, handler:Promise<any>):void;
     isMemberOfClass(interface: any):Boolean;
     searchCompletionHandler(query: Query, handler:Function):void;
+    setSettingsCompletionHandler(settings: {[key:string]: Array<string>}, handler:Function):void;
+    addObjectsCompletionHandler(object:Object, handler:Function):void;
 }
 
 declare class Client {
