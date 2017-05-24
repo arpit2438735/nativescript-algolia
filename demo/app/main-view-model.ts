@@ -14,7 +14,12 @@ export class HelloWorldModel extends Observable {
         this.updateMessage();
         let algolia = new Algolia('VG744RBG1B', '5789b99f1c6b86c2656224d477ac186b');
         let index = algolia.initIndex('getstarted_actors');
-        console.log(index);
+
+        index.search('nicolas', (success, error) => {
+            console.log(success);
+            console.log(error);
+        });
+
         debugger;
     }
 

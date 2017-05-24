@@ -6,10 +6,11 @@
 **********************************************************************************/
 'use strict';
 
-/// <reference path="./Client.ios.d.ts" />
-declare let index;
+/// <reference path="./Algolia.ios.d.ts" />
 
-export class Algolia {
+import { AlgoliaIndex } from './algolia-index';
+
+export class Algolia{
   protected client:any;
 
   constructor(appID: string, apiKey: string) {
@@ -17,13 +18,8 @@ export class Algolia {
     this.client.initWithAppIDApiKey(appID, apiKey);
   };
 
-  public initIndex(name:string) : void {
-    this.client.indexWithName("").isMemberOfClass(Index);
-    index = this.client.indexWithName(name);
-  }
-
-  public static search(query:string, handler:Promise<any>):void {
-    index.searchCompletionHandler(query, handler);
+  public initIndex(name:string) : AlgoliaIndex {
+    return new AlgoliaIndex(this.client, name)
   }
 }
 

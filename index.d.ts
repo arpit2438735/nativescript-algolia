@@ -1,8 +1,7 @@
-//--------------------------
-// algolia typings file.
-//--------------------------
+import { AlgoliaIndex } from './algolia-index';
+
 export declare class Algolia {
     protected client: any;
     constructor(appID: string, apiKey: string);
-    initIndex(name: string): Index;
+    initIndex(name: string): AlgoliaIndex;
 }
