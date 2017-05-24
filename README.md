@@ -19,11 +19,6 @@ tns plugin add nativescript-algolia
 1. **[Install](#install)**
 
     * [Nativescript](#nativescript)
-    * [Node.js / React Native / Browserify / webpack](#nodejs--react-native--browserify--webpack)
-    * [TypeScript typings](#typescript-typings)
-    * [Bower](#bower)
-    * [&lt;script&gt; tag using CDNs](#script-tag-using-cdns)
-    * [Search only/lite client](#search-onlylite-client)
 
 1. **[Quick Start](#quick-start)**
 
@@ -54,6 +49,7 @@ You can find both of them on [your Algolia account](https://www.algolia.com/api-
 ```js
 import {Algolia} from "nativescript-algolia";
 var client = new Algolia('applicationID', 'apiKey');
+var index = client.initIndex('contacts');
 ```
 
 ### Search
