@@ -13,3 +13,5 @@ node_modules/
 *.gz
 *.zip
 *.js
+*.iml
+*.log
