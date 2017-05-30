@@ -7,12 +7,14 @@ declare module com {
                 }
 
                 class Index {
-                    searchAsync(query: com.algolia.search.saas.Query, Function);
+                    searchAsync(query: com.algolia.search.saas.Query, handler:Function):void;
+                    setSettingsAsync(setting:{[key:string]: Array<string>}, handler:Function):void;
+                    addObjectAsync(object:{[key:string]: Array<string>}, handler:Function):void;
                 }
 
                 class Client {
                     constructor(appId:string, appKey:string);
-                    initIndex(name:string): Index;
+                    initIndex(name:string):Index;
                 }
 
                 module CompletionHandler {

@@ -13,6 +13,20 @@ export class AlgoliaIndex {
 
         index.searchAsync(new com.algolia.search.saas.Query(query), completionHandler);
     }
+
+    public setSettings(settings: Object, handler: Function):void {
+        _handler_ = handler;
+        let completionHandler = new CompletionHandler();
+
+        index.setSettingsAsync(settings, completionHandler);
+    }
+
+    public addObjects(object: Object, handler: Function):void {
+        _handler_ = handler;
+        let completionHandler = new CompletionHandler();
+
+        index.addObjectAsync(object, completionHandler);
+    }
 }
 
 var CompletionHandler = com.algolia.search.saas.CompletionHandler.extend({
