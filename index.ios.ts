@@ -10,16 +10,17 @@
 
 import { AlgoliaIndex } from './algolia-index';
 
+let client;
+
 export class Algolia{
-  protected client:any;
 
   constructor(appID: string, apiKey: string) {
-    this.client = Client.alloc();
-    this.client.initWithAppIDApiKey(appID, apiKey);
+    client = Client.alloc();
+    client.initWithAppIDApiKey(appID, apiKey);
   };
 
   public initIndex(name:string) : AlgoliaIndex {
-    return new AlgoliaIndex(this.client, name)
+    return new AlgoliaIndex(client, name)
   }
 }
 
