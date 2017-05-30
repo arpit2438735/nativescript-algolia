@@ -5,16 +5,19 @@
 * Version 1.0.0                                              arpit2438735@gmail.com
 **********************************************************************************/
 'use strict';
+/// <reference path="Algolia.android.d.ts" />
+
+import {AlgoliaIndex} from './algolia-index';
+
+let client;
 
 export class Algolia {
-  protected algoliaSearchClient:any;
 
   constructor(appID: string, apiKey: string) {
-    this.algoliaSearchClient = Client.alloc();
-    this.algoliaSearchClient.initWithAppIDApiKey(appID, apiKey);
+    client = new com.algolia.search.saas.Client(appID, apiKey);
   };
 
-  public initIndex(name:string) : void {
-    return this.algoliaSearchClient.indexWithName(name);
+  public initIndex(name:string) : AlgoliaIndex {
+    return new AlgoliaIndex(client, name);
   }
 }
