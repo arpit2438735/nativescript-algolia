@@ -20,9 +20,20 @@ export class AlgoliaIndex {
         _Query_ = Query.alloc();
     }
 
-    public search(query:string, handler:Function):void {
+    public search(query:string, args:any, handler?:Function):void {
+        let queryObject = _Query_.initWithQuery(query);
 
-        index.searchCompletionHandler(_Query_.initWithQuery(query), (success, error) => {
+        if(typeof args === "function" ) {
+            handler = args;
+        }else {
+            Object.keys(args).forEach((key) => {
+                if(key in queryObject) {
+                    queryObject[key] = args[key];
+                }
+            });
+        }
+
+        index.searchCompletionHandler(queryObject, (success, error) => {
             if(error) {
                 handler(convertToJSON(error));
             }
