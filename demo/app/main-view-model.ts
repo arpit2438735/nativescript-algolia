@@ -16,8 +16,8 @@ export class HelloWorldModel extends Observable {
         let index = algolia.initIndex('getstarted_actors');
 
         index.search('nicolas', (success, error) => {
-            console.log(success);
-            console.log(error);
+            console.log(JSON.stringify(success));
+            console.log(JSON.stringify(error));
         });
 
         debugger;

@@ -3,6 +3,11 @@
 let index;
 let _Query_;
 
+const convertToJSON = (data):JSON => {
+    let jsonData = NSJSONSerialization.dataWithJSONObjectOptionsError(data, 0);
+    return JSON.parse(NSString.alloc().initWithDataEncoding(jsonData, 4).toString());
+};
+
 export class AlgoliaIndex {
     constructor(client: Client, name:string) {
         /*
@@ -19,30 +24,30 @@ export class AlgoliaIndex {
 
         index.searchCompletionHandler(_Query_.initWithQuery(query), (success, error) => {
             if(error) {
-                handler(error);
+                handler(convertToJSON(error));
             }
 
-            handler(success);
+            handler(convertToJSON(success));
         });
     }
 
     public setSettings(settings:Object, handler:Function):void {
         index.setSettingsCompletionHandler(settings, (success, error) => {
             if(error) {
-                handler(error);
+                handler(convertToJSON(error));
             }
 
-            handler(success);
+            handler(convertToJSON(success));
         });
     }
 
     public addObjects(object:Object, handler:Function):void {
         index.addObjectsCompletionHandler(object, (success, error) => {
             if(error) {
-                handler(error);
+                handler(convertToJSON(error));
             }
 
-            handler(success);
+            handler(convertToJSON(success));
         });
     }
 }
