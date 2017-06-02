@@ -14,7 +14,7 @@ export class HelloWorldModel extends Observable {
 
         index.search('nicolas', (success, error) => {
             this.message = success.hits;
-            console.log(JSON.stringify(error));
+            console.log(JSON.stringify(success));
         });
 
         debugger;

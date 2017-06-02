@@ -4,6 +4,7 @@ declare module com {
             module saas {
                 class Query {
                     constructor(query: string);
+                    set(key:string, value:string);
                 }
 
                 class Index {

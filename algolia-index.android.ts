@@ -7,11 +7,20 @@ export class AlgoliaIndex {
         index = client.initIndex(name);
     }
 
-    public search(query: string, handler: Function):void {
-        _handler_ = handler;
+    public search(query: string, args:any, handler?: Function):void {
         let completionHandler = new CompletionHandler();
+        let queryObject = new com.algolia.search.saas.Query(query);
+        _handler_ = handler;
 
-        index.searchAsync(new com.algolia.search.saas.Query(query), completionHandler);
+        if(typeof args === "function" ) {
+            _handler_ = args;
+        }else {
+            Object.keys(args).forEach((key) => {
+                queryObject.set(key, args[key].toString());
+            });
+        }
+
+        index.searchAsync(queryObject, completionHandler);
     }
 
     public setSettings(settings: Object, handler: Function):void {
