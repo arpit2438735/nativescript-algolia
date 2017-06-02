@@ -1,52 +1,48 @@
 import {Observable} from 'data/observable';
 import {Algolia} from "nativescript-algolia";
 
+let index;
 export class HelloWorldModel extends Observable {
 
-    private _counter: number;
-    private _message: string;
+    private _message: Array<Object>;
+    private _searchText: string;
 
     constructor() {
         super();
-
-        // Initialize default values.
-        this._counter = 42;
-        this.updateMessage();
         let algolia = new Algolia('VG744RBG1B', '5789b99f1c6b86c2656224d477ac186b');
-        let index = algolia.initIndex('getstarted_actors');
+        index = algolia.initIndex('getstarted_actors');
 
-        index.search('nicolas', {
-            attributesToRetrieve: ['firstname', 'lastname'],
-            hitsPerPage: 50
-        },(success, error) => {
-            console.log(JSON.stringify(success));
+        index.search('nicolas', (success, error) => {
+            this.message = success.hits;
             console.log(JSON.stringify(error));
         });
 
         debugger;
     }
 
-    get message(): string {
+    get message(): Array<Object> {
         return this._message;
     }
     
-    set message(value: string) {
-        if (this._message !== value) {
-            this._message = value;
-            this.notifyPropertyChange('message', value)
+    set message(value: Array<Object>) {
+        this._message = value;
+        this.notifyPropertyChange('message', value)
+    }
+
+    get searchText(): string {
+        return this._searchText;
+    }
+
+    set searchText(value: string) {
+        if (this._searchText !== value) {
+            this._searchText = value;
+            this.notifyPropertyChange('searchText', value);
         }
     }
 
     public onTap() {
-        this._counter--;
-        this.updateMessage();
-    }
-
-    private updateMessage() {
-        if (this._counter <= 0) {
-            this.message = 'Hoorraaay! You unlocked the NativeScript clicker achievement!';
-        } else {
-            this.message = `${this._counter} taps left`;
-        }
+        index.search(this.searchText, (success, error) => {
+            this.message = success.hits;
+        });
     }
 }

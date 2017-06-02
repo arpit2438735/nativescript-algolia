@@ -10,6 +10,8 @@ components that have the btn class name.
 */
 .btn {
     font-size: 18;
+    margin-top: 20;
+    margin-bottom: 20;
 }
 
 /*

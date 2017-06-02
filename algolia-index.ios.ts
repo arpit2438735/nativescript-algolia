@@ -1,7 +1,6 @@
 /// <reference path="./Algolia.ios.d.ts" />
 
 let index;
-let _Query_;
 
 const convertToJSON = (data):JSON => {
     let jsonData = NSJSONSerialization.dataWithJSONObjectOptionsError(data, 0);
@@ -17,11 +16,10 @@ export class AlgoliaIndex {
 
         client.indexWithName("").isMemberOfClass(Index);
         index = client.indexWithName(name);
-        _Query_ = Query.alloc();
     }
 
     public search(query:string, args:any, handler?:Function):void {
-        let queryObject = _Query_.initWithQuery(query);
+        let queryObject = Query.alloc().initWithQuery(query);
 
         if(typeof args === "function" ) {
             handler = args;

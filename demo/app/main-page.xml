@@ -25,8 +25,15 @@ https://docs.nativescript.org/ui/components.
     class names available for styling your app at https://docs.nativescript.org/ui/theme.
     -->
     <StackLayout class="p-20">
-        <Label text="Tap the button" class="h1 text-center"/>
-        <Button text="TAP" tap="{{ onTap }}" class="btn btn-primary btn-active"/>
-        <Label text="{{ message }}" class="h2 text-center" textWrap="true"/>
+        <TextField text="{{ searchText }}" hint="Enter any actor name (hollywood)"/>
+        <Button text="Click to search" tap="{{ onTap }}" class="btn btn-primary btn-active"/>
+        <ListView items="{{message}}">
+
+            <ListView.itemTemplate>
+                <StackLayout orientation="horizontal">
+                    <Label text="{{name}}"/>
+                </StackLayout>
+            </ListView.itemTemplate>
+        </ListView>
     </StackLayout>
 </Page>
