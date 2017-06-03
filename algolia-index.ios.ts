@@ -1,11 +1,7 @@
 /// <reference path="./Algolia.ios.d.ts" />
+import convertToJSON from './utils';
 
 let index;
-
-const convertToJSON = (data):JSON => {
-    let jsonData = NSJSONSerialization.dataWithJSONObjectOptionsError(data, 0);
-    return JSON.parse(NSString.alloc().initWithDataEncoding(jsonData, 4).toString());
-};
 
 export class AlgoliaIndex {
     constructor(client: Client, name:string) {

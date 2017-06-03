@@ -17,6 +17,25 @@ export class HelloWorldModel extends Observable {
             console.log(JSON.stringify(success));
         });
 
+        /* Example of multiple quries */
+        //var queries = [{
+        //    indexName: 'getstarted_actors',
+        //    query: 'nicolas',
+        //    params: {
+        //        hitsPerPage: 3
+        //    }
+        //}, {
+        //    indexName: 'getstarted_actors',
+        //    query: 'kate',
+        //    params: {
+        //        hitsPerPage: 3
+        //    }
+        //}];
+        //
+        //algolia.search(queries, (success, error) => {
+        //    console.log(JSON.stringify(success));
+        //});
+
         debugger;
     }
 

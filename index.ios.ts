@@ -9,6 +9,7 @@
 /// <reference path="./Algolia.ios.d.ts" />
 
 import { AlgoliaIndex } from './algolia-index';
+import convertToJSON from './utils';
 
 let client;
 
@@ -21,6 +22,30 @@ export class Algolia{
 
   public initIndex(name:string) : AlgoliaIndex {
     return new AlgoliaIndex(client, name)
+  }
+
+  public search(queries:Array<queryObject>, handler:Function):void {
+      let indexQueries = [];
+
+      queries.forEach((query)=> {
+          let _query = Query.alloc().initWithQuery(query.query);
+
+          if (query.params) {
+
+              Object.keys(query.params).forEach((key)=> {
+                  query[key] = query.params[key];
+              });
+          }
+          indexQueries.push(IndexQuery.alloc().initWithIndexNameQuery(query.indexName, _query));
+      });
+
+      client.multipleQueriesStrategyCompletionHandler(indexQueries, null, (success, error) => {
+          if(error) {
+              handler(convertToJSON(error));
+          }
+
+          handler(convertToJSON(success));
+      });
   }
 }
 

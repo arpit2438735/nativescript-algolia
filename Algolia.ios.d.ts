@@ -1,3 +1,9 @@
+declare interface queryObject {
+    indexName: string,
+    query: string,
+    params?: Object
+}
+
 declare class Index {
     static alloc(): Index;
     static searchCompletionHandler(query:string, handler:Promise<any>):void;
@@ -11,9 +17,15 @@ declare class Client {
     static alloc(): Client;
     initWithAppIDApiKey(appID:string, apiKey:string): void;
     indexWithName(name:string): Index;
+    multipleQueriesStrategyCompletionHandler(indexQueries: [IndexQuery], strategy:string, handler:Function):void;
 }
 
 declare class Query {
     static alloc(): Query;
     initWithQuery(query:string): Query;
+}
+
+declare class IndexQuery {
+    static alloc(): IndexQuery;
+    initWithIndexNameQuery(indexName:string, query:Query):IndexQuery;
 }
