@@ -21,7 +21,7 @@ android:
 #        - $HOME/.gradle/wrapper/
 
 install:
-    - nvm install node
+    - nvm install node@6
     - npm install -g nativescript
     - tns usage-reporting disable
     - tns error-reporting disable
