@@ -11,14 +11,14 @@ android:
     - extra-android-m2repository
     - sys-img-armeabi-v7a-android-21
 
-before_cache:
-    - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
-
-cache:
-    directories:
-        - .nvm
-        - $HOME/.gradle/caches/
-        - $HOME/.gradle/wrapper/
+#before_cache:
+#    - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+#
+#cache:
+#    directories:
+#        - .nvm
+#        - $HOME/.gradle/caches/
+#        - $HOME/.gradle/wrapper/
 
 install:
     - nvm install node
@@ -34,5 +34,4 @@ before_script:
 
 script:
     - npm run setup
-    - npm run demo.android
     - npm run test.android
