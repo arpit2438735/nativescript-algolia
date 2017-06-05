@@ -15,12 +15,18 @@
   "dependencies": {
     "nativescript-algolia": "file:///Users/arpitsrivastava/IdeaProjects/nativescript-algolia",
     "nativescript-theme-core": "~1.0.2",
+    "nativescript-unit-test-runner": "^0.3.4",
     "tns-core-modules": "3.0.0"
   },
   "devDependencies": {
+    "@types/jasmine": "^2.5.51",
     "babel-traverse": "6.24.1",
     "babel-types": "6.24.1",
     "babylon": "6.17.1",
+    "jasmine-core": "^2.6.2",
+    "karma": "^1.7.0",
+    "karma-jasmine": "^1.1.0",
+    "karma-nativescript-launcher": "^0.4.0",
     "lazy": "1.0.11",
     "nativescript-dev-android-snapshot": "^0.*.*",
     "nativescript-dev-typescript": "~0.4.0",

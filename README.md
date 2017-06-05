@@ -1,4 +1,10 @@
 # NativeScript-Algolia
+
+[![Build Status][build-status]][build-url]
+
+[build-status]:https://travis-ci.org/arpit2438735/nativescript-algolia.svg?branch=master
+[build-url]:https://travis-ci.org/arpit2438735/nativescript-algolia
+
 Nativescript plugin for Algolia(https://www.algolia.com/) search
 
 The idea of this plugin is to work seamlessly for mobile devices using Nativescript(https://www.nativescript.org/) same as defined in javascript-client(https://github.com/algolia/algoliasearch-client-javascript/).

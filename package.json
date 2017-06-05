@@ -39,13 +39,16 @@
   "scripts": {
     "build": "tsc",
     "demo.ios": "npm run preparedemo && cd demo && tns emulate ios",
-    "demo.android": "npm run preparedemo && cd demo && tns run android",
+    "demo.android": "npm run preparedemo && cd demo && tns run android --justlaunch",
     "debug.ios": "npm run preparedemo && cd demo && tns debug ios --emulator",
     "debug.android": "npm run preparedemo && cd demo && tns debug android --emulator",
     "preparedemo": "npm run build && cd demo && tns plugin remove nativescript-algolia && tns plugin add .. && tns install",
     "setup": "cd demo && npm install && cd .. && npm run build && cd demo && tns plugin add .. && cd ..",
     "prepublish": "tsc",
-    "start": "npm run demo.ios"
+    "start": "npm run demo.ios",
+    "test.ios": "cd demo && tns platform remove ios && tns test ios --emulator",
+    "test.ios.device": "cd demo && tns platform remove ios && tns test ios",
+    "test.android": "cd demo && tns platform remove android && tns test android --justlaunch"
   },
   "devDependencies": {
     "tns-core-modules": "^3.0.0",

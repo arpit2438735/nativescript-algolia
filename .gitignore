@@ -15,3 +15,6 @@ node_modules/
 *.js
 *.iml
 *.log
+
+!demo/karma.conf.js
+!demo/hooks/**/nativescript-unit-test-runner.js
