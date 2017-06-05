@@ -42,7 +42,8 @@ var CompletionHandler = com.algolia.search.saas.CompletionHandler.extend({
 
     requestCompleted(content:JSON, error:Error):void {
         if(error) {
-            _handler_(JSON.parse(error.toString()));
+            _handler_(error);
+            return;
         }
 
         _handler_(JSON.parse(content.toString()));
