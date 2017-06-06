@@ -29,30 +29,30 @@ export class AlgoliaIndex {
 
         index.searchCompletionHandler(queryObject, (success, error) => {
             if(error) {
-                handler(error);
+                return handler(null, {status: error.code, reason: error.localizedDescription});
             }
 
-            handler(convertToJSON(success));
+            return handler(convertToJSON(success));
         });
     }
 
     public setSettings(settings:Object, handler:Function):void {
         index.setSettingsCompletionHandler(settings, (success, error) => {
             if(error) {
-                handler(error);
+                return handler(null, {status: error.code, reason: error.localizedDescription});
             }
 
-            handler(convertToJSON(success));
+            return handler(convertToJSON(success));
         });
     }
 
     public addObjects(object:Object, handler:Function):void {
         index.addObjectsCompletionHandler(object, (success, error) => {
             if(error) {
-                handler(error);
+                return handler(null, {status: error.code, reason: error.localizedDescription});
             }
 
-            handler(convertToJSON(success));
+            return handler(convertToJSON(success));
         });
     }
 }

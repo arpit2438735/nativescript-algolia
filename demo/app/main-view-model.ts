@@ -12,10 +12,15 @@ export class HelloWorldModel extends Observable {
         let algolia = new Algolia('VG744RBG1B', '5789b99f1c6b86c2656224d477ac186b');
         index = algolia.initIndex('getstarted_actors');
 
-        // index.search('nicolas', (success, error) => {
-        //     this.message = success.hits;
-        //     console.log(JSON.stringify(success));
-        // });
+         //index.search('nicolas', (success, error) => {
+         //    if(error) {
+         //        console.log(JSON.stringify(error));
+         //        return;
+         //    }
+         //
+         //    this.message = success.hits;
+         //    console.log(JSON.stringify(success));
+         //});
 
         /* Example of multiple quries */
         //var queries = [{

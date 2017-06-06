@@ -41,10 +41,10 @@ export class Algolia{
 
       client.multipleQueriesStrategyCompletionHandler(indexQueries, null, (success, error) => {
           if(error) {
-              handler(error);
+              return handler(null, {status: error.code, reason: error.localizedDescription});
           }
 
-          handler(convertToJSON(success));
+          return handler(convertToJSON(success));
       });
   }
 }
