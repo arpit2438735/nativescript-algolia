@@ -46,9 +46,9 @@
     "setup": "cd demo && npm install && cd .. && npm run build && cd demo && npm install",
     "prepublish": "tsc",
     "start": "npm run demo.ios",
-    "test.ios": "cd demo && tns test ios --emulator",
-    "test.ios.device": "cd demo && tns test ios",
-    "test.android": "cd demo && tns test android --justlaunch"
+    "test.ios": "cd demo && tsc && tns test ios --emulator",
+    "test.ios.device": "cd demo && tsc && tns test ios",
+    "test.android": "cd demo && tsc && tns test android --justlaunch"
   },
   "devDependencies": {
     "tns-core-modules": "^3.0.0",

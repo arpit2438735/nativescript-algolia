@@ -18,4 +18,3 @@ node_modules/
 
 !demo/karma.conf.js
 !demo/hooks/**/nativescript-unit-test-runner.js
-!demo/app/tests/*.js
