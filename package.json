@@ -48,7 +48,7 @@
     "start": "npm run demo.ios",
     "test.ios": "cd demo && tns test ios --emulator",
     "test.ios.device": "cd demo && tns test ios",
-    "test.android": "cd demo && tns platform remove android && tns test android --justlaunch"
+    "test.android": "cd demo && tns test android --justlaunch"
   },
   "devDependencies": {
     "tns-core-modules": "^3.0.0",
