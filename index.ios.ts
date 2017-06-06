@@ -41,7 +41,7 @@ export class Algolia{
 
       client.multipleQueriesStrategyCompletionHandler(indexQueries, null, (success, error) => {
           if(error) {
-              handler(convertToJSON(error));
+              handler(error);
           }
 
           handler(convertToJSON(success));

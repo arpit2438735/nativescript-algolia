@@ -29,7 +29,7 @@ export class AlgoliaIndex {
 
         index.searchCompletionHandler(queryObject, (success, error) => {
             if(error) {
-                handler(convertToJSON(error));
+                handler(error);
             }
 
             handler(convertToJSON(success));
@@ -39,7 +39,7 @@ export class AlgoliaIndex {
     public setSettings(settings:Object, handler:Function):void {
         index.setSettingsCompletionHandler(settings, (success, error) => {
             if(error) {
-                handler(convertToJSON(error));
+                handler(error);
             }
 
             handler(convertToJSON(success));
@@ -49,7 +49,7 @@ export class AlgoliaIndex {
     public addObjects(object:Object, handler:Function):void {
         index.addObjectsCompletionHandler(object, (success, error) => {
             if(error) {
-                handler(convertToJSON(error));
+                handler(error);
             }
 
             handler(convertToJSON(success));
