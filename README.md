@@ -5,16 +5,15 @@
 [build-status]:https://travis-ci.org/arpit2438735/nativescript-algolia.svg?branch=master
 [build-url]:https://travis-ci.org/arpit2438735/nativescript-algolia
 
-Nativescript plugin for Algolia(https://www.algolia.com/) search
+[NativeScript](http://nativescript.org) plugin for [Algolia](http://algolia.com/ "Algolia") search.
 
-The idea of this plugin is to work seamlessly for mobile devices using Nativescript(https://www.nativescript.org/) same as defined in javascript-client(https://github.com/algolia/algoliasearch-client-javascript/).
-You don't have to change or add any extra logic for existing application, it will work for nativescript 
+This plugin is designed to mirror, as closely as possible, the structure of [Algolia’s JavaScript](https://github.com/algolia/algoliasearch-client-javascript/) client. You don't have to change or add any extra logic for existing applications, it will work for NativeScript.
 
 ## License
 This plugin is licensed under the MIT license by Arpit Srivastava
 
 ## Installation
-To install type
+To install, type
 
 ```
 tns plugin add nativescript-algolia
@@ -25,7 +24,7 @@ tns plugin add nativescript-algolia
 
 1. **[Install](#install)**
 
-    * [Nativescript](#nativescript)
+    * [NativeScript](#nativescript)
 
 1. **[Quick Start](#quick-start)**
 
@@ -40,7 +39,7 @@ tns plugin add nativescript-algolia
 
 ## Install
 
-#### Nativescript
+#### NativeScript
 
 ```sh
 tns plugin add nativescript-algolia
@@ -52,7 +51,7 @@ In 30 seconds, this quick start tutorial will show you how to index and search o
 
 ### Initialize the client
 
-You first need to initialize the client. For that you need your **Application ID** and **API Key**.
+You first need to initialize the client. For that, you will need your **Application ID** and **API Key**.
 You can find both of them on [your Algolia account](https://www.algolia.com/api-keys).
 
 ```js
@@ -78,7 +77,7 @@ index.addObjects(contactsJSON, function(err, content) {
 
 ### Search
 
-You can now search for contacts using firstname, lastname, company, etc. (even with typos):
+With these tasks complete, you can now search for contacts by querying fields such as firstname, lastname, company and more. As Algolia is typo tolerant, common misspellings can be handled with ease:
 
 ```js
 // firstname
@@ -113,7 +112,7 @@ index.setSettings({
 });
 ```
 
-You can also configure the list of attributes you want to index by order of importance (first = most important):
+You can also configure the list of attributes you want to index by order of importance (ex: firstname = most important):
 
 **Note:** Since the engine is designed to suggest results as you type, you'll generally search by prefix.
 In this case the order of attributes is very important to decide which hit is the best:
