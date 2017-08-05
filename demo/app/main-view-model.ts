@@ -1,7 +1,7 @@
 import {Observable} from 'data/observable';
 import {Algolia} from "nativescript-algolia";
 
-let index;
+let index, index_2;
 export class HelloWorldModel extends Observable {
 
     private _message: Array<Object>;
@@ -10,17 +10,29 @@ export class HelloWorldModel extends Observable {
     constructor() {
         super();
         let algolia = new Algolia('VG744RBG1B', '5789b99f1c6b86c2656224d477ac186b');
+
         index = algolia.initIndex('getstarted_actors');
 
-         //index.search('nicolas', (success, error) => {
-         //    if(error) {
-         //        console.log(JSON.stringify(error));
-         //        return;
-         //    }
-         //
-         //    this.message = success.hits;
-         //    console.log(JSON.stringify(success));
-         //});
+         index.search('nicolas', (success, error) => {
+            if(error) {
+                console.log(JSON.stringify(error));
+                return;
+            }
+
+            this.message = success.hits;
+            console.log(JSON.stringify(success));
+         });
+
+        /*  let algolia2 = new Algolia('VG744RBG1B', 'b5575d1f6756ee3aab0544eaa7161406');
+            index_2 = algolia2.initIndex('test');
+            index_2.search('San', (success, error) => {
+            if(error) {
+                console.log(JSON.stringify(error));
+                return;
+            }
+
+            console.log(JSON.stringify(success));
+        });*/
 
         /* Example of multiple quries */
         //var queries = [{
