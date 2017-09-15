@@ -1,7 +1,6 @@
 /// <reference path="Algolia.android.d.ts" />
 
 let index;
-let _handler_;
 export class AlgoliaIndex {
     constructor(client: com.algolia.search.saas.Client, name: string) {
         index = client.initIndex(name);
@@ -10,10 +9,10 @@ export class AlgoliaIndex {
     public search(query: string, args:any, handler?: Function):void {
         let completionHandler = new CompletionHandler();
         let queryObject = new com.algolia.search.saas.Query(query);
-        _handler_ = handler;
+        completionHandler.handler = handler;
 
         if(typeof args === "function" ) {
-            _handler_ = args;
+            completionHandler.handler = args;
         }else {
             Object.keys(args).forEach((key) => {
                 queryObject.set(key, args[key].toString());
@@ -24,28 +23,32 @@ export class AlgoliaIndex {
     }
 
     public setSettings(settings: Object, handler: Function):void {
-        _handler_ = handler;
         let completionHandler = new CompletionHandler();
+        completionHandler.handler = handler;
 
         index.setSettingsAsync(settings, completionHandler);
     }
 
     public addObjects(object: Object, handler: Function):void {
-        _handler_ = handler;
         let completionHandler = new CompletionHandler();
+        completionHandler.handler = handler;
 
         index.addObjectAsync(object, completionHandler);
     }
 }
 
-var CompletionHandler = com.algolia.search.saas.CompletionHandler.extend({
+const CompletionHandler = com.algolia.search.saas.CompletionHandler.extend({
+
+    init():void{
+        return global.__native(this);
+    },
 
     requestCompleted(content:JSON, error:Error):void {
         if(error) {
-            return _handler_(null, error);
+            return this.handler(null, error);
         }
 
-        return _handler_(JSON.parse(content.toString()));
+        return this.handler(JSON.parse(content.toString()));
     }
 
 });

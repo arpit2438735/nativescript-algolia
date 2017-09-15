@@ -7,10 +7,9 @@
 'use strict';
 /// <reference path="Algolia.android.d.ts" />
 
-import {AlgoliaIndex} from './algolia-index';
+import {AlgoliaIndex, CompletionHandler} from './algolia-index';
 
 let client;
-let _handler_;
 
 export class Algolia {
 
@@ -24,9 +23,9 @@ export class Algolia {
 
   public search(queries: Array<queryObject>, handler: Function): void {
       let indexQueries = new java.util.ArrayList();
-      _handler_ = handler;
 
       let completionHandler = new CompletionHandler();
+      completionHandler.handler = handler;
 
       queries.forEach((query)=> {
           let _query = new com.algolia.search.saas.Query(query.query);
@@ -43,18 +42,3 @@ export class Algolia {
       client.multipleQueriesAsync(indexQueries, null, completionHandler);
   }
 }
-
-/** FixME Need to remove the duplication code defined in algolia-index as well **/
-var CompletionHandler = com.algolia.search.saas.CompletionHandler.extend({
-
-    requestCompleted(content:JSON, error:Error):void {
-        if(error) {
-            return _handler_(null, error);
-        }
-
-        return _handler_(JSON.parse(content.toString()));
-    }
-
-});
-
-exports.CompletionHandler = CompletionHandler;
