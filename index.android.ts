@@ -33,7 +33,7 @@ export class Algolia {
           if (query.params) {
 
               Object.keys(query.params).forEach((key)=> {
-                  query[key] = query.params[key];
+                  _query.set(key, query.params[key].toString());
               });
           }
           indexQueries.add(new com.algolia.search.saas.IndexQuery(query.indexName, _query));
