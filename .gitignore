@@ -22,3 +22,6 @@ demo/report/report.html
 demo/report/stats.json
 
 *.iml
+*.aar
+demo/package-lock.json
+publish/package-lock.json

@@ -1,9 +1,5 @@
 android {
-    productFlavors {
-        "nativescriptalgolia" {
-            dimension "nativescriptalgolia"
-        }
-    }
+    
 
     packagingOptions {
         exclude 'META-INF/DEPENDENCIES'
