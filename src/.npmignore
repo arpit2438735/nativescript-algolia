@@ -1,7 +1,10 @@
 *.map
 *.ts
 !*.d.ts
+references.d.ts
 tsconfig.json
+.npmignore
+.travis.yml
 scripts/*
 platforms/android/*
 !platforms/android/include.gradle
