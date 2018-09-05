@@ -29,3 +29,8 @@ declare class IndexQuery {
     static alloc(): IndexQuery;
     initWithIndexNameQuery(indexName:string, query:Query):IndexQuery;
 }
+
+declare class LatLng {
+    static alloc(): LatLng;
+    initWithLatLng(lat: number, lng: number): LatLng;
+}

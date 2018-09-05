@@ -19,10 +19,15 @@ export class AlgoliaIndex {
 
         if(typeof args === "function" ) {
             handler = args;
-        }else {
+        } else {
             Object.keys(args).forEach((key) => {
                 if(key in queryObject) {
-                    queryObject[key] = args[key];
+                    if(key === 'aroundLatLng') {
+                        const latlng = args[key].replace(/ /g, '').split(",");
+                        queryObject[key] = LatLng.alloc().initWithLatLng(latlng[0], latlng[1]);
+                    } else {
+                        queryObject[key] = args[key];
+                    }
                 }
             });
         }
