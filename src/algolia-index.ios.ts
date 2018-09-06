@@ -1,5 +1,8 @@
 /// <reference path="./Algolia.ios.d.ts" />
-import convertToJSON from './utils';
+import {
+    convertToJSON,
+    buildQuery,
+} from './utils';
 
 let index;
 
@@ -22,12 +25,7 @@ export class AlgoliaIndex {
         } else {
             Object.keys(args).forEach((key) => {
                 if(key in queryObject) {
-                    if(key === 'aroundLatLng') {
-                        const latlng = args[key].replace(/ /g, '').split(",");
-                        queryObject[key] = LatLng.alloc().initWithLatLng(latlng[0], latlng[1]);
-                    } else {
-                        queryObject[key] = args[key];
-                    }
+                    queryObject[key] = buildQuery(key, args[key]);
                 }
             });
         }

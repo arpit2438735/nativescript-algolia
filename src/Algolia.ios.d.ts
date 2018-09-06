@@ -32,5 +32,5 @@ declare class IndexQuery {
 
 declare class LatLng {
     static alloc(): LatLng;
-    initWithLatLng(lat: number, lng: number): LatLng;
+    initWithLatLng(lat: string, lng: string): LatLng;
 }

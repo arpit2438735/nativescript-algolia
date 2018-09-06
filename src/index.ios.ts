@@ -9,7 +9,10 @@
 /// <reference path="./Algolia.ios.d.ts" />
 
 import { AlgoliaIndex } from './algolia-index';
-import convertToJSON from './utils';
+import {
+    convertToJSON,
+    buildQuery,
+} from './utils';
 
 let client;
 
@@ -33,7 +36,7 @@ export class Algolia{
           if (query.params) {
 
               Object.keys(query.params).forEach((key)=> {
-                  _query[key] = query.params[key];
+                  _query[key] = buildQuery(key, query.params[key]);
               });
           }
           indexQueries.push(IndexQuery.alloc().initWithIndexNameQuery(query.indexName, _query));
