@@ -36,7 +36,11 @@ export class Algolia{
           if (query.params) {
 
               Object.keys(query.params).forEach((key)=> {
-                  _query[key] = buildQuery(key, query.params[key]);
+                  if (key === 'aroundRadius' && query.params[key] === 'all') {
+                      _query.setParameterWithNameTo('aroundRadius', 'all');
+                  } else {
+                      _query[key] = buildQuery(key, query.params[key]);
+                  }
               });
           }
           indexQueries.push(IndexQuery.alloc().initWithIndexNameQuery(query.indexName, _query));

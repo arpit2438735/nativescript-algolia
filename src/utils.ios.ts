@@ -9,9 +9,5 @@ export const buildQuery = (key:string, value: string):string|boolean|LatLng => {
         return LatLng.alloc().initWithLatLng(latlng[0], latlng[1]);
     }
 
-    if (key === 'aroundRadius' && value === 'all') {
-        return Boolean('all');
-    }
-
     return value
 };

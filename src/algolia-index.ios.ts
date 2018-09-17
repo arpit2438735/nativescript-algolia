@@ -25,7 +25,11 @@ export class AlgoliaIndex {
         } else {
             Object.keys(args).forEach((key) => {
                 if(key in queryObject) {
-                    queryObject[key] = buildQuery(key, args[key]);
+                    if (key === 'aroundRadius' && args[key] === 'all') {
+                        queryObject.setParameterWithNameTo('aroundRadius', 'all');
+                    } else {
+                        queryObject[key] = buildQuery(key, args[key]);
+                    }
                 }
             });
         }

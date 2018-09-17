@@ -23,6 +23,7 @@ declare class Client {
 declare class Query {
     static alloc(): Query;
     initWithQuery(query:string): Query;
+    setParameterWithNameTo(param:string, value:string|object): Query;
 }
 
 declare class IndexQuery {
