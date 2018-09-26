@@ -1,5 +1,7 @@
 # NativeScript-Algolia
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/arpit2438735/nativescript-algolia.svg)](https://greenkeeper.io/)
+
 [![Build Status][build-status]][build-url]
 
 [build-status]:https://travis-ci.org/arpit2438735/nativescript-algolia.svg?branch=master
