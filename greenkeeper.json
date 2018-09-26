@@ -1,0 +1,12 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "demo/app/package.json",
+        "demo/package.json",
+        "publish/package.json",
+        "src/package.json"
+      ]
+    }
+  }
+}
