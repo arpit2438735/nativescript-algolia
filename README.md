@@ -68,7 +68,7 @@ Without any prior configuration, you can start indexing [500 contacts](https://g
 var index = client.initIndex('contacts');
 var contactsJSON = require('./contacts.json');
 
-index.addObjects(contactsJSON, function(err, content) {
+index.addObjects(contactsJSON, function(content, err) {
   if (err) {
     console.error(err);
   }
@@ -81,22 +81,22 @@ With these tasks complete, you can now search for contacts by querying fields su
 
 ```js
 // firstname
-index.search('jimmie', function(err, content) {
+index.search('jimmie', function(content, err) {
   console.log(content.hits);
 });
 
 // firstname with typo
-index.search('jimie', function(err, content) {
+index.search('jimie', function(content, err) {
   console.log(content.hits);
 });
 
 // a company
-index.search('california paint', function(err, content) {
+index.search('california paint', function(content, err) {
   console.log(content.hits);
 });
 
 // a firstname & company
-index.search('jimmie paint', function(err, content) {
+index.search('jimmie paint', function(content, err) {
   console.log(content.hits);
 });
 ```
@@ -127,7 +127,7 @@ index.setSettings({
     'city',
     'address'
   ]
-}, function(err, content) {
+}, function(content, err) {
   console.log(content);
 });
 ```
