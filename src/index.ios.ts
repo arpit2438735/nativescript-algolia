@@ -20,7 +20,7 @@ export class Algolia{
 
   constructor(appID: string, apiKey: string) {
     client = Client.alloc();
-    client.initWithAppIDApiKey(appID, apiKey);
+    client = client.initWithAppIDApiKey(appID, apiKey);
   };
 
   public initIndex(name:string) : AlgoliaIndex {
