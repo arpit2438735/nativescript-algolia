@@ -1,6 +1,6 @@
 {
     "name": "nativescript-algolia",
-    "version": "1.2.3",
+    "version": "1.2.4",
     "description": "Nativescript plugin for Algolia(https://www.algolia.com/) search",
     "main": "index.js",
     "typings": "index.d.ts",
