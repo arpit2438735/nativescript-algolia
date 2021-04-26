@@ -1,3 +1,7 @@
+## This plugin is now maintained under the NativeScript Community.
+
+https://github.com/nativescript-community/algolia
+
 # NativeScript-Algolia
 
 [![Build Status][build-status]][build-url]
