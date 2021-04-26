@@ -1,19 +1,17 @@
-/// <reference path="Algolia.android.d.ts" />
-
 let index;
 export class AlgoliaIndex {
     constructor(client: com.algolia.search.saas.Client, name: string) {
         index = client.initIndex(name);
     }
 
-    public search(query: string, args:any, handler?: Function):void {
-        let completionHandler = new CompletionHandler();
-        let queryObject = new com.algolia.search.saas.Query(query);
+    public search(query: string, args: any, handler?: Function): void {
+        const completionHandler = new CompletionHandler();
+        const queryObject = new com.algolia.search.saas.Query(query);
         completionHandler.handler = handler;
 
-        if(typeof args === "function" ) {
+        if (typeof args === 'function') {
             completionHandler.handler = args;
-        }else {
+        } else {
             Object.keys(args).forEach((key) => {
                 queryObject.set(key, args[key].toString());
             });
@@ -22,15 +20,15 @@ export class AlgoliaIndex {
         index.searchAsync(queryObject, completionHandler);
     }
 
-    public setSettings(settings: Object, handler: Function):void {
-        let completionHandler = new CompletionHandler();
+    public setSettings(settings: Object, handler: Function): void {
+        const completionHandler = new CompletionHandler();
         completionHandler.handler = handler;
 
         index.setSettingsAsync(settings, completionHandler);
     }
 
-    public addObjects(object: Object, handler: Function):void {
-        let completionHandler = new CompletionHandler();
+    public addObjects(object: Object, handler: Function): void {
+        const completionHandler = new CompletionHandler();
         completionHandler.handler = handler;
 
         index.addObjectAsync(object, completionHandler);
@@ -38,19 +36,17 @@ export class AlgoliaIndex {
 }
 
 const CompletionHandler = com.algolia.search.saas.CompletionHandler.extend({
-
-    init():void{
+    init(): void {
         return global.__native(this);
     },
 
-    requestCompleted(content:JSON, error:Error):void {
-        if(error) {
+    requestCompleted(content: JSON, error: Error): void {
+        if (error) {
             return this.handler(null, error);
         }
 
         return this.handler(JSON.parse(content.toString()));
     }
-
 });
 
 exports.CompletionHandler = CompletionHandler;

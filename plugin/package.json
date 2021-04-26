@@ -1,0 +1,30 @@
+{
+    "name": "@nativescript-community/algolia",
+    "version": "1.2.4",
+    "description": "NativeScript plugin for Algolia search.",
+    "main": "./algolia",
+    "typings": "./algolia.d.ts",
+    "nativescript": {
+        "platforms": {
+            "android": "6.0.0",
+            "ios": "6.0.0"
+        }
+    },
+    "keywords": [
+        "NativeScript",
+        "JavaScript",
+        "Android",
+        "iOS",
+        "algolia",
+        "search"
+    ],
+    "bugs": {
+        "url": "https://github.com/nativescript-community/algolia/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/nativescript-community/algolia"
+    },
+    "license": "Apache-2.0",
+    "readmeFilename": "README.md"
+}

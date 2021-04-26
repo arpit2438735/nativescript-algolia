@@ -1,30 +1,21 @@
-# NativeScript-Algolia
+# NativeScript Algolia
 
-[![Build Status][build-status]][build-url]
+[![npm](https://img.shields.io/npm/v/@nativescript-community/algolia.svg)](https://www.npmjs.com/package/@nativescript-community/algolia)
+[![npm downloads](https://img.shields.io/npm/dm/@nativescript-community/algolia.svg)](https://www.npmjs.com/package/@nativescript-community/algolia)
+[![npm downloads](https://img.shields.io/npm/dt/@nativescript-community/algolia.svg)](https://www.npmjs.com/package/@nativescript-community/algolia)
 
-[build-status]:https://travis-ci.org/arpit2438735/nativescript-algolia.svg?branch=master
-[build-url]:https://travis-ci.org/arpit2438735/nativescript-algolia
-
-[NativeScript](http://nativescript.org) plugin for [Algolia](http://algolia.com/ "Algolia") search.
 
 This plugin is designed to mirror, as closely as possible, the structure of [Algolia’s JavaScript](https://github.com/algolia/algoliasearch-client-javascript/) client. You don't have to change or add any extra logic for existing applications, it will work for NativeScript.
-
-## License
-This plugin is licensed under the MIT license by Arpit Srivastava
 
 ## Installation
 To install, type
 
 ```
-tns plugin add nativescript-algolia
+ns plugin add @nativescript-community/algolia
 ```
 
 ## Table of Contents
 
-
-1. **[Install](#install)**
-
-    * [NativeScript](#nativescript)
 
 1. **[Quick Start](#quick-start)**
 
@@ -33,17 +24,6 @@ tns plugin add nativescript-algolia
     * [Search](#search)
     * [Configure](#configure)
     
-# Getting Started
-
-
-
-## Install
-
-#### NativeScript
-
-```sh
-tns plugin add nativescript-algolia
-```
 
 ## Quick Start
 
@@ -55,7 +35,7 @@ You first need to initialize the client. For that, you will need your **Applicat
 You can find both of them on [your Algolia account](https://www.algolia.com/api-keys).
 
 ```js
-import {Algolia} from "nativescript-algolia";
+import { Algolia } from "@nativescript-community/algolia";
 var client = new Algolia('applicationID', 'apiKey');
 var index = client.initIndex('contacts');
 ```
@@ -132,5 +112,5 @@ index.setSettings({
 });
 ```
 
-
-
+## License
+This plugin is licensed under the MIT license by Arpit Srivastava

@@ -1,6 +1,2 @@
-/// <reference path="./node_modules/tns-core-modules/tns-core-modules.d.ts" />
-/// <reference path="./node_modules/typescript/lib/lib.es6.d.ts" />
-
-/// <reference path="./node_modules/tns-platform-declarations/android/android-platform-27.d.ts" />
-/// <reference path="./node_modules/tns-platform-declarations/ios/ios.d.ts" />
-
+/// <reference path="./typings/algolia.ios.d.ts" />
+/// <reference path="./typings/algolia.android.d.ts" />

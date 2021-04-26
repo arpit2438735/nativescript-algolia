@@ -1,4 +1,3 @@
-/// <reference path="Algolia.ios.d.ts" />
 export declare class AlgoliaIndex {
     constructor(client: Client, name: string);
     search(query: string, args: any, handler?: Function): void;
